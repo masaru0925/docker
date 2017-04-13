@@ -10,7 +10,6 @@ MAINTAINER	Masaru <masaru.0925@gmail.com>
 
 # Environment vriables
 ENV PATH /root/anaconda3/bin:$PATH
-ENV DISPLAY :0.0
 
 # Directories for notebooks
 RUN	mkdir /opt/notebooks
