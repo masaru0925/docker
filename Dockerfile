@@ -47,8 +47,9 @@ RUN	jupyter notebook --generate-config && \
 RUN	conda install -y -c conda-forge jupyter_contrib_nbextensions
 RUN	git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding && \
 	# Activate the extension
-	jupyter nbextension enable vim_binding/vim_binding && \
-	rm -rf vim_binding
+	jupyter nbextension enable vim_binding/vim_binding
+#	jupyter nbextension enable vim_binding/vim_binding && \
+#	rm -rf vim_binding
 
 # Startup
 CMD	jupyter notebook
