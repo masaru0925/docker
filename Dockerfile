@@ -20,6 +20,7 @@ RUN	chmod a+rw /opt/notebooks
 # ubuntu packages
 RUN	apt-get update && apt-get --assume-yes install \
 	bzip2 \
+	git \
 	libgtk2.0-0 \
 	libpng12-0 \
 	libgomp1 \
@@ -41,6 +42,13 @@ RUN	jupyter notebook --generate-config && \
 	echo "c.NotebookApp.ip = '*'"				>> /root/.jupyter/jupyter_notebook_config.py && \
 	echo "c.NotebookApp.port = 8888"			>> /root/.jupyter/jupyter_notebook_config.py && \
 	echo "c.NotebookApp.notebook_dir = '/opt/notebooks'"	>> /root/.jupyter/jupyter_notebook_config.py
+
+# Jupyter extensions
+RUN	conda install -y -c conda-forge jupyter_contrib_nbextensions
+RUN	git clone https://github.com/lambdalisue/jupyter-vim-binding vim_binding && \
+	# Activate the extension
+	jupyter nbextension enable vim_binding/vim_binding && \
+	rm -rf vim_binding
 
 # Startup
 CMD	jupyter notebook
