@@ -27,7 +27,7 @@ RUN	apt-get update && apt-get --assume-yes install \
 	vim \
 	wget 
 # Anaconda3
-RUN	wget -o - https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh \
+RUN	wget -q https://repo.continuum.io/archive/Anaconda3-4.2.0-Linux-x86_64.sh \
 	&& bash ./Anaconda3-4.2.0-Linux-x86_64.sh -b -p /root/anaconda3 \
 	&& rm -f ./Anaconda3-4.2.0-Linux-x86_64.sh 
 
