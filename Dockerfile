@@ -21,6 +21,8 @@ RUN	chmod a+rw /opt/notebooks
 RUN	apt-get update && apt-get --assume-yes install \
 	bzip2 \
 	git \
+	iproute2 \
+	iputils-ping \
 	libgtk2.0-0 \
 	libpng12-0 \
 	libgomp1 \
